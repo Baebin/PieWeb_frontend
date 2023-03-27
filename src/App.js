@@ -1,53 +1,31 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import {useEffect, useState} from "react";
+import './css/bootstrap.min.css';
 
-import Header from './Layout/Header'
-import { Container } from 'react-bootstrap';
+import { Route, Routes } from 'react-router-dom';
+
+import HomeComponent from './components/Home'
+import HeaderComponent from './components/Header'
+import TesterComponent from './components/Tester';
+import NotFoundComponent from './components/NotFound'
+
+import SignInPage from './pages/SignIn';
+import SignUpPage from './pages/SignUp';
 
 function App() {
-    const [message, setMessage] = useState();
-
-    const [nickname, setNickname] = useState();
-    const [password, setPassword] = useState();
-
-
-    useEffect(() => {
-      fetch("/api/hello")
-          .then((response) => {
-              return response.text();
-          })
-          .then((data) => {
-              setMessage(data);
-          });
-    }, []);
-
-    return (
-        <div className="App">
-            <Header>
-                <Container style={{minHeight:'75vh'}}>
-                  
-                </Container>
-            </Header>
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo"/>
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-                <ul>
-                    <li key={message}>{message}</li>
-                </ul>
-            </header>
-            */
-        </div>
+    return(
+        <React.Fragment>
+            <div className="App">
+                <HeaderComponent />
+                <Routes>
+                    <Route path="/" element={<HomeComponent />} />
+                    <Route path="/tester" element={<TesterComponent />} />
+                    <Route path="/signin" element={<SignInPage />} />
+                    <Route path="/signup" element={<SignUpPage />} />
+                    <Route path="/*" element={<NotFoundComponent />} />
+                </Routes>
+            </div>
+        </React.Fragment>
     );
 }
 
