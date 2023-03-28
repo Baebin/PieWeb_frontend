@@ -17,7 +17,8 @@ const SignUp = (props) => {
 
     const signup = () => {
         let id_check = /^[a-zA-z0-9]{4,12}$/;
-        let pw_check = /^[a-zA-z0-9]{4,20}$/;
+        let pw_check = /^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]|.*[0-9]).{8,24}$/;
+        // let pw_check = /^[a-zA-z0-9]{4,20}$/;
 
         if (id === "") {
             window.alert("아이디가 입력되지 않았습니다.");
@@ -35,12 +36,12 @@ const SignUp = (props) => {
         }
 
         if (!id_check.test(id)) {
-            window.alert("아이디는 영문 대소문자와 숫자 4 ~ 12 자리로 입력해주세요.");
+            window.alert("아이디는 영문 대소문자와 숫자 8 ~ 24 자리로 입력해주세요.");
             return;
         }
 
         if (!pw_check.test(pw)) {
-            window.alert("비밀번호는 영문 대소문자와 숫자 4 ~ 12 자리로 입력해주세요.");
+            window.alert("비밀번호는 특수기호를 포함하여 영문 대소문자와 숫자 8 ~ 24 자리로 입력해주세요.");
             return;
         }
         dispatch(actionCreators.signupAPI(id, pw, pw_confirm, navigate));
