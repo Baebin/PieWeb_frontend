@@ -4,7 +4,6 @@ import '../css/bootstrap.min.css';
 import { useDispatch } from 'react-redux';
 import { actionCreators } from '../redux/modules/user';
 
-import { history } from '../redux/store';
 import { useNavigate } from 'react-router-dom';
 
 const SignUp = (props) => {
