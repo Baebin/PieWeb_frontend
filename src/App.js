@@ -7,6 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 import HomeComponent from './components/Home'
 import HeaderComponent from './components/Header'
 import TesterComponent from './components/Tester';
+import PostTesterComponent from './components/TesterPost';
 import NotFoundComponent from './components/NotFound'
 
 import SignInPage from './pages/SignIn';
@@ -22,6 +23,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<HomeComponent />} />
                     <Route path="/tester" element={<TesterComponent />} />
+                    <Route path="/tester/post" element={<PostTesterComponent />} />
                     <Route path="/signin" element={<SignInPage />} />
                     <Route path="/signup" element={<SignUpPage />} />
                     <Route path="/write" element={<WritePage />} />

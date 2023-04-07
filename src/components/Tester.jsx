@@ -1,12 +1,15 @@
 import React, { PureComponent } from 'react';
 import axios from 'axios';
 
+import { useDispatch, useSelector } from 'react-redux';
+import { actionCreators } from '../redux/modules/post';
+
 class Tester extends PureComponent {
     constructor(props) {
         super(props)
 
         this.state = {
-            message: ""
+            message: "",
         }
     }
 

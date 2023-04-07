@@ -40,6 +40,24 @@ const Header = (props) => {
                         onClick={() => { navigate('/tester'); }}>
                         Tester
                     </Nav.Link>
+                    <Nav.Link
+                        onClick={() => { navigate('/tester/post'); }}>
+                        PostTester
+                    </Nav.Link>
+                    {
+                    is_login?
+                    (<Nav>
+                        <Nav.Link
+                            onClick={() => { navigate('/write'); }}>
+                            Write
+                        </Nav.Link>
+                        <Nav.Link
+                            onClick={() => { navigate('/load'); }}>
+                            Load
+                        </Nav.Link>
+                    </Nav>)
+                    : null
+                    }
                 </Nav>
                 {
                     is_login?

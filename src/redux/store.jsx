@@ -5,12 +5,14 @@ import thunk from "redux-thunk";
 
 // Modules
 import User from "./modules/user";
+import Post from "./modules/post";
 
 // export const history = createBrowserHistory();
 
 const reducers = combineReducers(
     {
-        user: User
+        user: User,
+        post: Post,
     }
 )
 
